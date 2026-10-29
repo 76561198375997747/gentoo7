@@ -109,24 +109,6 @@ mkfs.xfs /dev/mapper/tux-root
 | `emerge --ask @module-rebuild`                                               | after installing a new kernel                                                                           |
 | `emerge --ask @preserved-rebuild`                                            | for using new libraries                                                                                 |
 
-> [!CAUTION]  
-> repository files and design choices are strictly made with hardware and preference(s) of mine in mind. \
-> if you're intrigued by the setup and hardware is appropriate freely follow the guide.
-> ```
-> git clone https://github.com/76561198375997747/gentoo7.git
-> wget https://github.com/76561198375997747/gentoo7/archive/refs/heads/main.zip
->
-> # wayland-setup
-> cp gentoo7/var/lib/portage/world-wl /mnt/gentoo/var/lib/portage/world
->
-> # x11-setup
-> cp gentoo7/var/lib/portage/world-x11 /mnt/gentoo/var/lib/portage/world
->
-> # read the sources listed throughout the guide for best practices to fully grasp the underlying concepts.
-> # if uncertain, reading the official gentoo installation handbook goes a long way:
-> links https://wiki.gentoo.org/wiki/Handbook:AMD64
-> ```
-
 ---
 
 ### mounting devices
@@ -189,6 +171,49 @@ export PS1="(chroot) ${PS1}"
 > to speed up transfers in most cases: `bs=4096`                  \
 > to display transfers stats: `status=progress`
 
+> [!CAUTION]  
+> repo-specific file configurations and design choices are strictly made with hardware and preference(s) of mine in mind. \
+> read the sources listed throughout the guide for best practices to fully grasp the underlying concepts used throughout the guide
+> ```
+> # if uncertain, reading the official gentoo installation handbook goes a long way:
+> links https://wiki.gentoo.org/wiki/Handbook:AMD64
+>
+> # if certain, apply repo-specific configurations by cloning the repo and cd into it:
+> git clone https://github.com/76561198375997747/gentoo7.git
+> wget https://github.com/76561198375997747/gentoo7/archive/refs/heads/main.zip
+> cd gentoo7
+>
+> mv gentoo7/etc/dracut.conf.d/dracut.conf /mnt/gentoo/etc/dracut.conf.d/dracut.conf
+> mv gentoo7/etc/kernel/cmdline /mnt/gentoo/etc/kernel/cmdline
+> mv gentoo7/etc/lvm/lvm.conf /mnt/gentoo/etc/lvm/lvm.conf
+> mv gentoo7/etc/portage/package.use/core /mnt/gentoo/etc/portage/package.use/core
+> mv gentoo7/etc/portage/package.use/steam /mnt/gentoo/etc/portage/package.use/steam
+> mv gentoo7/etc/portage/repos.conf/eselect-repo.conf /mnt/gentoo/etc/portage/repos.conf/eselect-repo.conf
+> mv gentoo7/etc/portage/make.conf /mnt/gentoo/etc/portage/make.conf
+> mv gentoo7/etc/portage/package.accept_keywords /mnt/gentoo/etc/portage/package.accept_keywords
+> mv gentoo7/etc/portage/package.license /mnt/gentoo/etc/portage/package.license
+> mv gentoo7/etc/portage/package.mask /mnt/gentoo/etc/portage/package.mask
+> mv gentoo7/etc/udev/rules.d/60-steam-input.rules /mnt/gentoo/etc/udev/rules.d/60-steam-input.rules
+> mv gentoo7/etc/udev/rules.d/60-steam-vr.rules /mnt/gentoo/etc/udev/rules.d/60-steam-vr.rules
+> mv gentoo7/etc/udev/rules.d/80-nvidia-pm.rules /mnt/gentoo/etc/udev/rules.d/80-nvidia-pm.rules
+> mv gentoo7/etc/dispatch-conf.conf /mnt/gentoo/etc/dispatch-conf.conf
+> mv gentoo7/etc/doas.conf /mnt/gentoo/etc/doas.conf
+> mv gentoo7/etc/environment /mnt/gentoo/etc/environment
+> mv gentoo7/etc/fstab /mnt/gentoo/etc/fstab
+> mv gentoo7/etc/hostname /mnt/gentoo/etc/hostname
+> mv gentoo7/etc/hosts /mnt/gentoo/etc/hosts
+> mv gentoo7/etc/locale.gen /mnt/gentoo/etc/locale.gen
+> mv gentoo7/etc/vconsole.conf /mnt/gentoo/etc/vconsole.conf
+> 
+> # for @world set with wayland in mind:
+> mv gentoo7/var/lib/portage/world-wl /mnt/gentoo/var/lib/portage/world
+>
+> # for @world set with x11 in mind:
+> mv gentoo7/etc/X11/xorg.conf.d/20-intel.conf /mnt/gentoo/etc/X11/xorg.conf.d/20-intel.conf
+> mv gentoo7/etc/X11/xorg.conf.d/40-libinput.conf /mnt/gentoo/etc/X11/xorg.conf.d/40-libinput.conf
+> mv gentoo7/var/lib/portage/world-x11 /mnt/gentoo/var/lib/portage/world
+> ```
+
 ---
 
 ### installing base system
@@ -219,6 +244,7 @@ emerge --ask sys-kernel/linux-firmware sys-kernel/linux-headers sys-firmware/int
 emerge --ask app-crypt/sbsigntools sys-apps/fwupd sys-apps/pciutils sys-apps/systemd sys-kernel/dkms sys-kernel/gentoo-sources sys-kernel/installkernel
 emerge --ask sys-block/io-scheduler-udev-rules sys-fs/dosfstools sys-fs/e2fsprogs sys-fs/lvm2 sys-fs/ntfs3g sys-fs/xfsprogs
 
+# (skip unless you're not opting to use distribution kernels)
 ln -sf /usr/src/linux-<version>-gentoo /usr/src/linux
 cd /usr/src/linux
 
@@ -236,21 +262,22 @@ cp -v /usr/share/limine/BOOTX64.EFI /boot/EFI/BOOT/
 > `modprobed-db` is useful for building a minimal kernel with `make localmodconfig` and \
 > works best by using the distribution kernel for about a month and have the utility run in the background so it can have time to learn what modules the system needs:
 > ```
+> # to simplify the kernel setup and avoid configuration by hand,
+> # modify 'etc/portage/make.conf' and add 'dist-kernel' to your use flags.
+> # at this point, freely skip some steps outlined under section(s) 'installing firmware, bootloader and kernel'.
+>
+> # to use the distribution kernel with gentoo patches from source:
+> emerge --ask sys-kernel/gentoo-kernel
+> emerge --config sys-kernel/gentoo-kernel
+> 
+> # to use the precompiled distribution kernel:
 > emerge --ask sys-kernel/gentoo-kernel-bin
 > emerge --config sys-kernel/gentoo-kernel-bin
-> emerge --ask sys-kernel/modprobed-db
 >
+> emerge --ask sys-kernel/modprobed-db
 > modprobed-db store
 > modprobed-db recall
 > make LSMOD=$HOME/.config/modprobed.db localmodconfig
->
-> # to simplify the kernel setup and avoid configuration by hand,
-> # modify 'etc/portage/make.conf' and add 'dist-kernel' to your use flags.
-> # to use the distribution kernel with gentoo patches from source:
-> emerge --ask sys-kernel/gentoo-kernel
->
-> # to use the precompiled distribution kernel:
-> emerge --ask sys-kernel/gentoo-kernel-bin
 > ```
 
 > [!TIP]
