@@ -32,7 +32,7 @@
 - [ ] tpm2
 - [x] uki
 - [x] wayland
-- [x] wsl 2
+- [x] wsl (windows)
 - [x] xorg
 - [x] zsh
 - [x] zswap
@@ -110,16 +110,20 @@ mkfs.xfs /dev/mapper/tux-root
 | `emerge --ask @preserved-rebuild`                                            | for using new libraries                                                                                 |
 
 > [!CAUTION]  
-> repository files and design choices are strictly made with hardware and preference(s) of mine in mind.      \
+> repository files and design choices are strictly made with hardware and preference(s) of mine in mind. \
 > if you're intrigued by the setup and hardware is appropriate freely follow the guide.
 > ```
-> git clone https://github.com/librazhd7/gentoo.git
-> wget https://github.com/librazhd7/gentoo/archive/refs/heads/main.zip
-> ```
-> 
-> you should spend time reading docs and the official gentoo installation handbook for best practices  \
-> to fully grasp the underlying concepts used throughout the guide:
-> ```
+> git clone https://github.com/76561198375997747/gentoo7.git
+> wget https://github.com/76561198375997747/gentoo7/archive/refs/heads/main.zip
+>
+> # wayland-setup
+> cp gentoo7/var/lib/portage/world-wl /mnt/gentoo/var/lib/portage/world
+>
+> # x11-setup
+> cp gentoo7/var/lib/portage/world-x11 /mnt/gentoo/var/lib/portage/world
+>
+> # read the sources listed throughout the guide for best practices to fully grasp the underlying concepts.
+> # if uncertain, reading the official gentoo installation handbook goes a long way:
 > links https://wiki.gentoo.org/wiki/Handbook:AMD64
 > ```
 
@@ -225,7 +229,7 @@ make install
 
 mkdir -p /boot/EFI/BOOT
 cp -v /usr/share/limine/BOOTX64.EFI /boot/EFI/BOOT/
-~~bootctl install~~ (systemd-boot)
+~~bootctl install~~
 ```
 
 > [!NOTE]
@@ -239,6 +243,14 @@ cp -v /usr/share/limine/BOOTX64.EFI /boot/EFI/BOOT/
 > modprobed-db store
 > modprobed-db recall
 > make LSMOD=$HOME/.config/modprobed.db localmodconfig
+>
+> # to simplify the kernel setup and avoid configuration by hand,
+> # modify 'etc/portage/make.conf' and add 'dist-kernel' to your use flags.
+> # to use the distribution kernel with gentoo patches from source:
+> emerge --ask sys-kernel/gentoo-kernel
+>
+> # to use the precompiled distribution kernel:
+> emerge --ask sys-kernel/gentoo-kernel-bin
 > ```
 
 > [!TIP]
@@ -395,9 +407,11 @@ winetricks dxvk vkd3d mfc42
 ---
 
 ### to do
-- proper referencing to docs but also files in the repository, make an index to navigate the readme too
+- proper referencing to docs & files in the repository
+- make an index to navigate the readme fully
+- make a section for explaining the functionality and relation of every custom file
 - script for installing and configuring gentoo automatically
-- gentoo =>> minimal packages by use flags
+- more emphasis on minimal packages by use flags
 
 ### docs
 - [__acpi__][url-acpi]
