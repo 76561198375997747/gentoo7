@@ -226,43 +226,22 @@ export PS1="(chroot) ${PS1}"
 > repo-specific file configurations and design choices are strictly made with hardware and preference(s) of mine in mind. \
 > read the sources listed throughout the guide for best practices to fully grasp the underlying concepts used throughout the guide
 > ```
-> # if uncertain, reading the official gentoo installation handbook goes a long way:
-> links https://wiki.gentoo.org/wiki/Handbook:AMD64
->
-> # if certain, apply repo-specific configurations by cloning the repo and cd into it:
+> # apply repo-specific configurations by cloning the repo and cd into it:
 > git clone https://github.com/76561198375997747/gentoo7.git
 > wget https://github.com/76561198375997747/gentoo7/archive/refs/heads/main.zip
 > cd gentoo7
 >
-> mv gentoo7/etc/dracut.conf.d/dracut.conf /mnt/gentoo/etc/dracut.conf.d/dracut.conf \
-> mv gentoo7/etc/kernel/cmdline /mnt/gentoo/etc/kernel/cmdline \
-> mv gentoo7/etc/lvm/lvm.conf /mnt/gentoo/etc/lvm/lvm.conf \
-> mv gentoo7/etc/portage/package.use/core /mnt/gentoo/etc/portage/package.use/core \
-> mv gentoo7/etc/portage/package.use/steam /mnt/gentoo/etc/portage/package.use/steam \
-> mv gentoo7/etc/portage/repos.conf/eselect-repo.conf /mnt/gentoo/etc/portage/repos.conf/eselect-repo.conf \
-> mv gentoo7/etc/portage/make.conf /mnt/gentoo/etc/portage/make.conf \
-> mv gentoo7/etc/portage/package.accept_keywords /mnt/gentoo/etc/portage/package.accept_keywords \
-> mv gentoo7/etc/portage/package.license /mnt/gentoo/etc/portage/package.license \
-> mv gentoo7/etc/portage/package.mask /mnt/gentoo/etc/portage/package.mask \
-> mv gentoo7/etc/udev/rules.d/60-steam-input.rules /mnt/gentoo/etc/udev/rules.d/60-steam-input.rules \
-> mv gentoo7/etc/udev/rules.d/60-steam-vr.rules /mnt/gentoo/etc/udev/rules.d/60-steam-vr.rules \
-> mv gentoo7/etc/udev/rules.d/80-nvidia-pm.rules /mnt/gentoo/etc/udev/rules.d/80-nvidia-pm.rules \
-> mv gentoo7/etc/dispatch-conf.conf /mnt/gentoo/etc/dispatch-conf.conf \
-> mv gentoo7/etc/doas.conf /mnt/gentoo/etc/doas.conf \
-> mv gentoo7/etc/environment /mnt/gentoo/etc/environment \
-> mv gentoo7/etc/fstab /mnt/gentoo/etc/fstab \
-> mv gentoo7/etc/hostname /mnt/gentoo/etc/hostname \
-> mv gentoo7/etc/hosts /mnt/gentoo/etc/hosts \ 
-> mv gentoo7/etc/locale.gen /mnt/gentoo/etc/locale.gen \ 
-> mv gentoo7/etc/vconsole.conf /mnt/gentoo/etc/vconsole.conf \
-> 
-> # for @world set with wayland in mind:
-> mv gentoo7/var/lib/portage/world-wl /mnt/gentoo/var/lib/portage/world
+> # grant execute permission and run automated setup:
+> chmod +x ./setup.sh
+> ./setup.sh
 >
-> # for @world set with x11 in mind:
-> mv gentoo7/etc/X11/xorg.conf.d/20-intel.conf /mnt/gentoo/etc/X11/xorg.conf.d/20-intel.conf
-> mv gentoo7/etc/X11/xorg.conf.d/40-libinput.conf /mnt/gentoo/etc/X11/xorg.conf.d/40-libinput.conf
-> mv gentoo7/var/lib/portage/world-x11 /mnt/gentoo/var/lib/portage/world
+> # for @world set with wayland in mind (manual):
+> mv -t gentoo7/var/lib/portage/world-wl /mnt/gentoo/var/lib/portage/world
+>
+> # for @world set with x11 in mind (manual):
+> mv -t gentoo7/etc/X11/xorg.conf.d/20-intel.conf /mnt/gentoo/etc/X11/xorg.conf.d/20-intel.conf
+> mv -t gentoo7/etc/X11/xorg.conf.d/40-libinput.conf /mnt/gentoo/etc/X11/xorg.conf.d/40-libinput.conf
+> mv -t gentoo7/var/lib/portage/world-x11 /mnt/gentoo/var/lib/portage/world
 > ```
 
 ---
@@ -634,6 +613,8 @@ winetricks dxvk vkd3d mfc42
 [url-repo-41]: <https://github.com/76561198375997747/gentoo7/blob/main/dot/.xsession>
 [url-repo-42]: <https://github.com/76561198375997747/gentoo7/blob/main/dot/.zprofile>
 [url-repo-43]: <https://github.com/76561198375997747/gentoo7/blob/main/dot/.zshrc>
+
+__made with__ ❤️
 
 ---
 
