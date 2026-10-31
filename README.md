@@ -18,6 +18,7 @@
 - [x] gaming (gamescope/steam/wine)
 - [x] hybrid graphics (optimus)
 - [x] kernel
+- [x] limine
 - [x] lvm thin provisioning (2:1)
 - [x] networking
 - [x] pipewire
@@ -330,6 +331,7 @@ make && make modules_install
 emerge --ask @module-rebuild
 make install
 
+emerge --ask sys-boot/limine
 mkdir -p /boot/EFI/BOOT
 cp -v /usr/share/limine/BOOTX64.EFI /boot/EFI/BOOT/
 ```
