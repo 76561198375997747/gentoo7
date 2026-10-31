@@ -33,7 +33,6 @@ games-action/minecraft-launcher
 games-arcade/supertux
 games-util/game-device-udev-rules
 games-util/steam-launcher
-gui-libs/xdg-desktop-portal-wlr
 gui-wm/gamescope
 kde-apps/ark
 kde-apps/dolphin
@@ -63,7 +62,6 @@ media-sound/alsa-utils
 media-video/libva-utils
 media-video/obs-studio
 media-video/pipewire
-media-video/vlc
 media-video/wireplumber
 net-fs/samba
 net-misc/networkmanager
