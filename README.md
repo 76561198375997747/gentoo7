@@ -333,7 +333,7 @@ make install
 emerge --ask sys-boot/limine
 mkdir -p /boot/EFI/BOOT
 cp -v /usr/share/limine/BOOTX64.EFI /boot/EFI/BOOT/
-dracut -f --kver $(uname -r) /boot/EFI/Linux/gentoo-linux.uki
+dracut -f /boot/EFI/Linux/gentoo-linux.uki
 ```
 
 > [!NOTE]
