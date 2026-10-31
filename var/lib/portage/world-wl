@@ -42,7 +42,6 @@ kde-apps/kcalc
 kde-apps/kcolorchooser
 kde-apps/kdenlive
 kde-apps/kfind
-kde-apps/khelpcenter
 kde-apps/kolourpaint
 kde-apps/ksystemlog
 kde-apps/kwalletmanager
@@ -91,6 +90,7 @@ sys-fs/lvm2
 sys-fs/ntfs3g
 sys-fs/xfsprogs
 sys-kernel/dkms
+sys-kernel/dracut
 sys-kernel/gentoo-kernel
 sys-kernel/installkernel
 sys-kernel/linux-firmware
