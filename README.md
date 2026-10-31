@@ -280,19 +280,19 @@ export PS1="(chroot) ${PS1}"
 > # apply repo-specific configurations by cloning the repo and cd into it:
 > git clone https://github.com/76561198375997747/gentoo7.git
 > wget https://github.com/76561198375997747/gentoo7/archive/refs/heads/main.zip
-> cd gentoo7
+> cd gentoo7-main
 >
-> # grant execute permission and run automated setup:
+> # grant execute permission and run automated setup (unsafe, work in progress):
 > chmod +x ./setup.sh
 > ./setup.sh
 >
 > # for @world set with wayland in mind (manual):
-> mv -i gentoo7/var/lib/portage/world-wl /mnt/gentoo/var/lib/portage/world
+> mv -i gentoo7-main/var/lib/portage/world-wl /var/lib/portage/world
 >
 > # for @world set with x11 in mind (manual):
-> mv -i gentoo7/etc/X11/xorg.conf.d/20-intel.conf /mnt/gentoo/etc/X11/xorg.conf.d/20-intel.conf
-> mv -i gentoo7/etc/X11/xorg.conf.d/40-libinput.conf /mnt/gentoo/etc/X11/xorg.conf.d/40-libinput.conf
-> mv -i gentoo7/var/lib/portage/world-x11 /mnt/gentoo/var/lib/portage/world
+> mv -i gentoo7-main/etc/X11/xorg.conf.d/20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
+> mv -i gentoo7-main/etc/X11/xorg.conf.d/40-libinput.conf /etc/X11/xorg.conf.d/40-libinput.conf
+> mv -i gentoo7-main/var/lib/portage/world-x11 /var/lib/portage/world
 > ```
 
 ---
@@ -322,7 +322,7 @@ mkdir -p /etc/cmdline.d
 ln -s /etc/kernel/cmdline /etc/cmdline.d/00-installkernel.conf
 
 emerge --ask sys-kernel/linux-firmware sys-kernel/linux-headers sys-firmware/intel-microcode sys-firmware/sof-firmware
-emerge --ask app-crypt/sbsigntools sys-apps/fwupd sys-apps/pciutils sys-apps/systemd sys-kernel/dkms sys-kernel/gentoo-sources sys-kernel/installkernel
+emerge --ask app-arch/zstd app-crypt/sbsigntools sys-apps/fwupd sys-apps/pciutils sys-apps/systemd sys-kernel/dkms sys-kernel/dracut sys-kernel/gentoo-sources sys-kernel/installkernel
 emerge --ask sys-block/io-scheduler-udev-rules sys-fs/dosfstools sys-fs/e2fsprogs sys-fs/lvm2 sys-fs/ntfs3g sys-fs/xfsprogs
 
 # (skip unless you're not opting to use distribution kernels)
@@ -336,7 +336,6 @@ make install
 
 mkdir -p /boot/EFI/BOOT
 cp -v /usr/share/limine/BOOTX64.EFI /boot/EFI/BOOT/
-~~bootctl install~~
 ```
 
 > [!NOTE]
