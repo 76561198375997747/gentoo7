@@ -453,6 +453,7 @@ emerge --ask app-admin/doas
 useradd -mG android,audio,kvm,libvirt,pipewire,plugdev,users,video,wheel <user>
 passwd <user>
 touch /etc/doas.conf
+echo "permit persist :wheel" >> /etc/doas.conf
 chmod -c 0400 /etc/doas.conf
 ```
 
