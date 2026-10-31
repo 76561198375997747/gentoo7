@@ -171,7 +171,13 @@ swapon /dev/mapper/tux-swap
 # using 2:1 overprovisioning ratio of 95% reserved thin pool with 2gb metadata rounded up
 lvcreate --type thin-pool --poolmetadatasize 2G -l 95%FREE -n thin tux
 lvcreate -V870G --thinpool tux/thin -n root
-mkfs.xfs /dev/mapper/tux-root
+
+#
+mkfs.xfs \
+  -m finobt=1 \
+  -m reflink=1 \
+  -m rmapbt=1 \
+  /dev/mapper/tux-root
 ```
 
 > [!NOTE]
@@ -512,8 +518,10 @@ winetricks dxvk vkd3d mfc42
 - proper referencing to docs & files in the repository
 - make an index to navigate the readme fully
 - make a section for explaining the functionality and relation of every custom file
-- script for installing and configuring gentoo automatically
+- scripts for installing and configuring gentoo automatically
 - more emphasis on minimal packages by use flags
+- binary gentoo package setup
+- document commands more and why they're issued
 
 ### docs
 - [__acpi__][url-acpi]
