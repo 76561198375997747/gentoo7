@@ -34,7 +34,6 @@
 - [ ] tpm2
 - [x] uki
 - [x] wayland
-- [x] wsl (windows)
 - [x] xorg
 - [x] zsh
 - [x] zswap
@@ -319,7 +318,7 @@ mkdir -p /etc/cmdline.d
 ln -s /etc/kernel/cmdline /etc/cmdline.d/00-installkernel.conf
 
 emerge --ask sys-kernel/linux-firmware sys-kernel/linux-headers sys-firmware/intel-microcode sys-firmware/sof-firmware
-emerge --ask app-arch/zstd app-crypt/sbsigntools sys-apps/fwupd sys-apps/pciutils sys-apps/systemd sys-kernel/dkms sys-kernel/dracut sys-kernel/gentoo-sources sys-kernel/installkernel
+emerge --ask app-crypt/sbsigntools sys-apps/fwupd sys-apps/pciutils sys-apps/systemd sys-kernel/dkms sys-kernel/dracut sys-kernel/gentoo-sources sys-kernel/installkernel
 emerge --ask sys-block/io-scheduler-udev-rules sys-fs/dosfstools sys-fs/e2fsprogs sys-fs/lvm2 sys-fs/ntfs3g sys-fs/xfsprogs
 
 # (skip unless you're not opting to use distribution kernels)
@@ -334,6 +333,7 @@ make install
 emerge --ask sys-boot/limine
 mkdir -p /boot/EFI/BOOT
 cp -v /usr/share/limine/BOOTX64.EFI /boot/EFI/BOOT/
+dracut -f --kver $(uname -r) /boot/EFI/Linux/gentoo-linux.uki
 ```
 
 > [!NOTE]
