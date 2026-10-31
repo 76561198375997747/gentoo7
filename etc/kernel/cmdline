@@ -4,7 +4,7 @@ root=UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 #rd.luks.uuid=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 #rd.luks.options=discard
 zswap.enabled=1
-zswap.compressor=lz4
+zswap.compressor=zstd
 zswap.max_pool_percent=20
 zswap.accept_threshold_percent=80
 zswap.shrinker_enabled=1
