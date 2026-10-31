@@ -3,6 +3,7 @@ app-admin/eclean-kernel
 app-crypt/sbsigntools
 app-editors/nano
 app-editors/vim
+app-editors/zed
 app-emulation/libvirt
 app-emulation/punes
 app-emulation/qemu
@@ -17,6 +18,8 @@ app-portage/gentoolkit
 app-shells/gentoo-zsh-completions
 app-shells/zsh
 app-shells/zsh-completions
+dev-build/cmake
+dev-build/ninja
 dev-java/openjdk-bin
 dev-libs/intel-compute-runtime
 dev-util/android-tools
