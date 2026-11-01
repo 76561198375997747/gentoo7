@@ -69,6 +69,7 @@ net-misc/moonlight
 net-misc/networkmanager
 net-misc/sunshine
 net-print/hplip
+net-voip/mumble
 net-wireless/bluez
 sys-apps/ethtool
 sys-apps/flatpak
