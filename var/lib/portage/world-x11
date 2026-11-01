@@ -32,7 +32,7 @@ dev-vcs/rcs
 games-action/minecraft-launcher
 games-arcade/supertux
 games-util/game-device-udev-rules
-#games-util/steam-launcher
+games-util/steam-launcher
 gnome-extra/nm-applet
 gui-wm/gamescope
 media-fonts/corefonts
@@ -50,7 +50,6 @@ media-sound/alsa-utils
 media-video/libva-utils
 media-video/obs-studio
 media-video/pipewire
-media-video/vlc
 media-video/wireplumber
 net-fs/samba
 net-misc/networkmanager
@@ -77,7 +76,7 @@ sys-fs/lvm2
 sys-fs/ntfs3g
 sys-fs/xfsprogs
 sys-kernel/dkms
-sys-kernel/gentoo-kernel
+sys-kernel/gentoo-sources
 sys-kernel/installkernel
 sys-kernel/linux-firmware
 sys-kernel/linux-headers
