@@ -15,7 +15,9 @@
 - [x] ~amd64
 - [x] bluetooth
 - [x] dracut
+- [x] flatpak
 - [x] gaming (gamescope/steam/wine)
+- [x] guru
 - [x] hybrid graphics (optimus)
 - [x] kernel
 - [x] limine
@@ -454,21 +456,34 @@ eclean-pkg
 
 ### rustup, zsh, nvidia, pipewire, virtualization[^20]
 ```
+#
 emerge --ask app-shells/zsh app-shells/zsh-completions app-shells/gentoo-zsh-completions
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 chsh -s /bin/zsh
 
+#
 emerge --ask media-video/pipewire sys-auth/rtkit x11-drivers/nvidia-drivers
 emerge --ask dev-util/rustup
 rustup-init-gentoo --symlink
 
+#
 emerge --ask app-emulation/libvirt app-emulation/qemu app-emulation/wine-staging app-emulation/winetricks
 winecfg
 winetricks dxvk vkd3d mfc42
 
+#
 emerge --ask sys-apps/flatpak
 flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
+#
+eselect repository enable guru
+
+#
+eselect repository enable steam-overlay
+emaint sync -r steam-overlay
+emerge --ask games-util/steam-launcher
+
+#
 git clone https://github.com/BeardOverflow/msi-ec.git
 cd msi-ec
 make dkms-install
@@ -476,6 +491,7 @@ eselect repository enable tatsh-overlay
 emaint sync -r tatsh-overlay
 emerge --ask app-misc/mcontrolcenter
 
+#
 curl -fsSL https://ollama.com/install.sh | sh
 ollama run qwen3.6:27b
 ```
