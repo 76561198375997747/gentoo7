@@ -23,21 +23,22 @@ net-print/hplip               hpcups scanner snmp
 #================================================================================================
 # user-deps packages
 #================================================================================================
-dev-libs/libdbusmenu gtk3
-dev-python/pyside uitools
-media-libs/freetype brotli
-media-libs/opensubdiv tbb
-media-libs/tiff zstd lzma
-media-video/ffmpeg opus vpx lame theora
-media-libs/libheif gui tools
-net-dns/avahi python
-net-dns/dnsmasq script
-net-libs/gnutls tools pkcs11
-net-libs/ngtcp2 gnutls
-sci-libs/opencascade json
-sci-libs/fftw threads
-sys-libs/zlib minizip
-sci-physics/bullet double-precision
+dev-libs/libdbusmenu     gtk3
+dev-python/pyside        uitools
+media-libs/freetype      brotli
+media-libs/opensubdiv    tbb
+media-libs/tiff          zstd lzma
+media-video/ffmpeg       opus vpx lame theora
+media-libs/libheif       gui tools
+media-libs/libsdl2       kms
+net-dns/avahi            python
+net-dns/dnsmasq          script
+net-libs/gnutls          tools pkcs11
+net-libs/ngtcp2          gnutls
+sci-libs/opencascade     json
+sci-libs/fftw            threads
+sys-libs/zlib            minizip
+sci-physics/bullet       double-precision
 
 #================================================================================================
 # system packages
@@ -46,6 +47,7 @@ app-admin/doas                persist
 media-libs/vulkan-loader      layers
 media-plugins/alsa-plugins    ffmpeg
 media-video/pipewire          pipewire-alsa sound-server
+sys-apps/systemd              boot
 sys-boot/limine               -bios -bios-cd -bios-pxe -uefi-aarch64 -uefi-cd -uefi-ia32 -uefi-loongarch64 -uefi-riscv64 uefi-x86-64
 sys-devel/gcc                 lto pgo
 sys-firmware/intel-microcode  initramfs
