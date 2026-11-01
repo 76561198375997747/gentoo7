@@ -63,6 +63,7 @@ media-sound/alsa-utils
 media-video/libva-utils
 media-video/obs-studio
 media-video/pipewire
+media-video/vlc
 media-video/wireplumber
 net-misc/moonlight
 net-misc/networkmanager
