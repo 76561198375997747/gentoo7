@@ -69,6 +69,7 @@ net-misc/sunshine
 net-print/hplip
 net-wireless/bluez
 sys-apps/ethtool
+sys-apps/flatpak
 sys-apps/fwupd
 sys-apps/keyutils
 sys-apps/pciutils
