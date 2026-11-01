@@ -319,7 +319,7 @@ ln -s /etc/kernel/cmdline /etc/cmdline.d/00-installkernel.conf
 
 emerge --ask sys-kernel/linux-firmware sys-kernel/linux-headers sys-firmware/intel-microcode sys-firmware/sof-firmware
 emerge --ask app-crypt/sbsigntools sys-apps/fwupd sys-apps/pciutils sys-apps/systemd sys-kernel/dkms sys-kernel/dracut sys-kernel/gentoo-sources sys-kernel/installkernel
-emerge --ask sys-block/io-scheduler-udev-rules sys-fs/dosfstools sys-fs/e2fsprogs sys-fs/lvm2 sys-fs/ntfs3g sys-fs/xfsprogs
+emerge --ask app-arch/zstd sys-block/io-scheduler-udev-rules sys-fs/dosfstools sys-fs/e2fsprogs sys-fs/lvm2 sys-fs/ntfs3g sys-fs/xfsprogs
 
 # (skip unless you're not opting to use distribution kernels)
 ln -sf /usr/src/linux-<version>-gentoo /usr/src/linux
@@ -333,7 +333,6 @@ make install
 emerge --ask sys-boot/limine
 mkdir -p /boot/EFI/BOOT
 cp -v /usr/share/limine/BOOTX64.EFI /boot/EFI/BOOT/
-dracut -f /boot/EFI/Linux/gentoo-linux.uki
 ```
 
 > [!NOTE]
@@ -376,15 +375,15 @@ dracut -f /boot/EFI/Linux/gentoo-linux.uki
 | `cups.service (#)`                     | `virtstoraged.socket (#)`   | |
 | `dkms.service (#)`                     | |
 | ~~`dnsmasq.service (#)`~~              | |
-| `gammastep.service`                    | |
+| `gammastep.service (?)`                | |
 | `getty@tty1.service (#)`               | |
 | `libvirtd.service (#)`                 | |
 | `lvm2-monitor.service (#)`             | |
 | `modprobed-db.service ($)`             | |
 | `NetworkManager.service (#)`           | |
-| `nmbd.service (#)`                     | |
+| ~~`nmbd.service (#)`~~                 | |
 | ~~`pulseaudio.service ($)`~~           | |
-| `smbd.service (#)`                     | |
+| ~~`smbd.service (#)`~~                 | |
 | `sshd.service (#)`                     | |
 | ~~`systemd-boot-update.service (#)`~~  | |
 | ~~`systemd-modules-load.service (#)`~~ | |
@@ -501,6 +500,7 @@ eclean-pkg
 ```
 emerge --ask app-shells/zsh app-shells/zsh-completions app-shells/gentoo-zsh-completions
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+chsh -s /bin/zsh
 
 emerge --ask media-video/pipewire sys-auth/rtkit x11-drivers/nvidia-drivers
 emerge --ask dev-util/rustup
