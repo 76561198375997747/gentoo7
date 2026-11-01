@@ -515,8 +515,11 @@ emerge --ask sys-apps/flatpak
 flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 git clone https://github.com/BeardOverflow/msi-ec.git
-cd msi-ec-master
+cd msi-ec
 doas make dkms-install
+eselect repository enable tatsh-overlay
+emaint sync -r tatsh-overlay
+emerge --ask app-misc/mcontrolcenter
 ```
 
 ---
