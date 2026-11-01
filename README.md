@@ -477,6 +477,7 @@ emaint sync -r tatsh-overlay
 emerge --ask app-misc/mcontrolcenter
 
 curl -fsSL https://ollama.com/install.sh | sh
+ollama run qwen3.6:27b
 ```
 
 ---
