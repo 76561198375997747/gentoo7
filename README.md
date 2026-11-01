@@ -126,7 +126,7 @@ mkswap /dev/mapper/tux-swap
 swapon /dev/mapper/tux-swap
 
 # using 2:1 overprovisioning ratio of 95% reserved thin pool with 2gb metadata
-lvcreate --type thin-pool --poolmetadatasize 2G -l 95%FREE -n thin tux
+lvcreate --type thin-pool --poolmetadatasize 2G -l 95%VG -n thin tux
 lvcreate -V870G --thinpool tux/thin -n root
 
 #
