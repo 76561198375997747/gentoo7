@@ -26,7 +26,7 @@
 - [x] power management
 - [x] printing
 - [x] qemu
-- [x] samba
+- [x] ~~samba~~
 - [ ] secure boot
 - [x] ssh
 - [x] systemd
@@ -95,51 +95,6 @@
 | [`dot/.xsession`][url-repo-41]                                                | n/a     |
 | [`dot/.zprofile`][url-repo-42]                                                | n/a     |
 | [`dot/.zshrc`][url-repo-43]                                                   | n/a     |
-
-<!-- -->
-[url-repo-1]:  <https://github.com/librazhd7/gentoo7/blob/main/boot/EFI/BOOT/limine.conf>
-[url-repo-2]:  <https://github.com/librazhd7/gentoo7/blob/main/boot/loader/loader.conf>
-[url-repo-3]:  <https://github.com/librazhd7/gentoo7/blob/main/etc/X11/xorg.conf.d/20-intel.conf>
-[url-repo-4]:  <https://github.com/librazhd7/gentoo7/blob/main/etc/X11/xorg.conf.d/40-libinput.conf>
-[url-repo-5]:  <https://github.com/librazhd7/gentoo7/blob/main/etc/dracut.conf.d/dracut.conf>
-[url-repo-6]:  <https://github.com/librazhd7/gentoo7/blob/main/etc/kernel/cmdline>
-[url-repo-7]:  <https://github.com/librazhd7/gentoo7/blob/main/etc/lvm/lvm.conf>
-[url-repo-8]:  <https://github.com/librazhd7/gentoo7/blob/main/etc/portage/package.use/core>
-[url-repo-9]:  <https://github.com/librazhd7/gentoo7/blob/main/etc/portage/package.use/steam>
-[url-repo-10]: <https://github.com/librazhd7/gentoo7/blob/main/etc/portage/repos.conf/eselect-repo.conf>
-[url-repo-11]: <https://github.com/librazhd7/gentoo7/blob/main/etc/portage/make.conf>
-[url-repo-12]: <https://github.com/librazhd7/gentoo7/blob/main/etc/portage/package.accept_keywords>
-[url-repo-13]: <https://github.com/librazhd7/gentoo7/blob/main/etc/portage/package.license>
-[url-repo-14]: <https://github.com/librazhd7/gentoo7/blob/main/etc/portage/package.mask>
-[url-repo-15]: <https://github.com/librazhd7/gentoo7/blob/main/etc/udev/rules.d/60-steam-input.rules>
-[url-repo-16]: <https://github.com/librazhd7/gentoo7/blob/main/etc/udev/rules.d/60-steam-vr.rules>
-[url-repo-17]: <https://github.com/librazhd7/gentoo7/blob/main/etc/udev/rules.d/80-nvidia-pm.rules>
-[url-repo-18]: <https://github.com/librazhd7/gentoo7/blob/main/etc/dispatch-conf.conf>
-[url-repo-19]: <https://github.com/librazhd7/gentoo7/blob/main/etc/doas.conf>
-[url-repo-20]: <https://github.com/librazhd7/gentoo7/blob/main/etc/environment>
-[url-repo-21]: <https://github.com/librazhd7/gentoo7/blob/main/etc/fstab>
-[url-repo-22]: <https://github.com/librazhd7/gentoo7/blob/main/etc/hostname>
-[url-repo-23]: <https://github.com/librazhd7/gentoo7/blob/main/etc/hosts>
-[url-repo-24]: <https://github.com/librazhd7/gentoo7/blob/main/etc/locale.gen>
-[url-repo-25]: <https://github.com/librazhd7/gentoo7/blob/main/etc/vconsole.conf>
-[url-repo-26]: <https://github.com/librazhd7/gentoo7/blob/main/var/lib/portage/world-wl>
-[url-repo-27]: <https://github.com/librazhd7/gentoo7/blob/main/var/lib/portage/world-x11>
-[url-repo-28]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.config/fontconfig/fonts.conf>
-[url-repo-29]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.config/gammastep/config.ini>
-[url-repo-30]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.config/gtk-3.0/settings.ini>
-[url-repo-31]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.config/gtk-4.0/settings.ini>
-[url-repo-32]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.config/idesktop/ideskrc>
-[url-repo-33]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.config/labwc/autostart>
-[url-repo-34]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.config/labwc/menu.xml>
-[url-repo-35]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.config/labwc/rc.xml>
-[url-repo-36]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.config/pipewire/pipewire.conf.d/99-input-denoising.conf>
-[url-repo-37]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.config/sfwbar/sfwbar.config>
-[url-repo-38]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.config/xdg-desktop-portal/portals.conf>
-[url-repo-39]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.gtkrc-2.0>
-[url-repo-40]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.xinitrc>
-[url-repo-41]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.xsession>
-[url-repo-42]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.zprofile>
-[url-repo-43]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.zshrc>
 
 ---
 
@@ -516,10 +471,12 @@ flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/fl
 
 git clone https://github.com/BeardOverflow/msi-ec.git
 cd msi-ec
-doas make dkms-install
+make dkms-install
 eselect repository enable tatsh-overlay
 emaint sync -r tatsh-overlay
 emerge --ask app-misc/mcontrolcenter
+
+curl -fsSL https://ollama.com/install.sh | sh
 ```
 
 ---
@@ -631,6 +588,51 @@ emerge --ask app-misc/mcontrolcenter
 [url-xorg]:                 <https://wiki.gentoo.org/wiki/Xorg>
 [url-zsh]:                  <https://wiki.gentoo.org/wiki/Zsh>
 [url-zswap]:                <https://wiki.gentoo.org/wiki/Zswap>
+
+<!-- -->
+[url-repo-1]:  <https://github.com/librazhd7/gentoo7/blob/main/boot/EFI/BOOT/limine.conf>
+[url-repo-2]:  <https://github.com/librazhd7/gentoo7/blob/main/boot/loader/loader.conf>
+[url-repo-3]:  <https://github.com/librazhd7/gentoo7/blob/main/etc/X11/xorg.conf.d/20-intel.conf>
+[url-repo-4]:  <https://github.com/librazhd7/gentoo7/blob/main/etc/X11/xorg.conf.d/40-libinput.conf>
+[url-repo-5]:  <https://github.com/librazhd7/gentoo7/blob/main/etc/dracut.conf.d/dracut.conf>
+[url-repo-6]:  <https://github.com/librazhd7/gentoo7/blob/main/etc/kernel/cmdline>
+[url-repo-7]:  <https://github.com/librazhd7/gentoo7/blob/main/etc/lvm/lvm.conf>
+[url-repo-8]:  <https://github.com/librazhd7/gentoo7/blob/main/etc/portage/package.use/core>
+[url-repo-9]:  <https://github.com/librazhd7/gentoo7/blob/main/etc/portage/package.use/steam>
+[url-repo-10]: <https://github.com/librazhd7/gentoo7/blob/main/etc/portage/repos.conf/eselect-repo.conf>
+[url-repo-11]: <https://github.com/librazhd7/gentoo7/blob/main/etc/portage/make.conf>
+[url-repo-12]: <https://github.com/librazhd7/gentoo7/blob/main/etc/portage/package.accept_keywords>
+[url-repo-13]: <https://github.com/librazhd7/gentoo7/blob/main/etc/portage/package.license>
+[url-repo-14]: <https://github.com/librazhd7/gentoo7/blob/main/etc/portage/package.mask>
+[url-repo-15]: <https://github.com/librazhd7/gentoo7/blob/main/etc/udev/rules.d/60-steam-input.rules>
+[url-repo-16]: <https://github.com/librazhd7/gentoo7/blob/main/etc/udev/rules.d/60-steam-vr.rules>
+[url-repo-17]: <https://github.com/librazhd7/gentoo7/blob/main/etc/udev/rules.d/80-nvidia-pm.rules>
+[url-repo-18]: <https://github.com/librazhd7/gentoo7/blob/main/etc/dispatch-conf.conf>
+[url-repo-19]: <https://github.com/librazhd7/gentoo7/blob/main/etc/doas.conf>
+[url-repo-20]: <https://github.com/librazhd7/gentoo7/blob/main/etc/environment>
+[url-repo-21]: <https://github.com/librazhd7/gentoo7/blob/main/etc/fstab>
+[url-repo-22]: <https://github.com/librazhd7/gentoo7/blob/main/etc/hostname>
+[url-repo-23]: <https://github.com/librazhd7/gentoo7/blob/main/etc/hosts>
+[url-repo-24]: <https://github.com/librazhd7/gentoo7/blob/main/etc/locale.gen>
+[url-repo-25]: <https://github.com/librazhd7/gentoo7/blob/main/etc/vconsole.conf>
+[url-repo-26]: <https://github.com/librazhd7/gentoo7/blob/main/var/lib/portage/world-wl>
+[url-repo-27]: <https://github.com/librazhd7/gentoo7/blob/main/var/lib/portage/world-x11>
+[url-repo-28]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.config/fontconfig/fonts.conf>
+[url-repo-29]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.config/gammastep/config.ini>
+[url-repo-30]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.config/gtk-3.0/settings.ini>
+[url-repo-31]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.config/gtk-4.0/settings.ini>
+[url-repo-32]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.config/idesktop/ideskrc>
+[url-repo-33]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.config/labwc/autostart>
+[url-repo-34]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.config/labwc/menu.xml>
+[url-repo-35]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.config/labwc/rc.xml>
+[url-repo-36]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.config/pipewire/pipewire.conf.d/99-input-denoising.conf>
+[url-repo-37]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.config/sfwbar/sfwbar.config>
+[url-repo-38]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.config/xdg-desktop-portal/portals.conf>
+[url-repo-39]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.gtkrc-2.0>
+[url-repo-40]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.xinitrc>
+[url-repo-41]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.xsession>
+[url-repo-42]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.zprofile>
+[url-repo-43]: <https://github.com/librazhd7/gentoo7/blob/main/dot/.zshrc>
 
 __made with__ ❤️
 
