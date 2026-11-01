@@ -47,6 +47,7 @@ kde-apps/kolourpaint
 kde-apps/ksystemlog
 kde-apps/kwalletmanager
 kde-plasma/discover
+kde-plasma/kwallet-pam
 kde-plasma/plasma-meta
 kde-plasma/xdg-desktop-portal-kde
 media-fonts/corefonts
