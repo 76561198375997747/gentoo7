@@ -14,5 +14,3 @@
 #if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
 #  exec startx
 #fi
-
-#dbus-run-session startplasma-wayland
