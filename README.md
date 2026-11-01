@@ -383,6 +383,7 @@ cp -v /usr/share/limine/BOOTX64.EFI /boot/EFI/BOOT/
 | `NetworkManager.service (#)`           | |
 | ~~`nmbd.service (#)`~~                 | |
 | ~~`pulseaudio.service ($)`~~           | |
+| `sddm.service (#)`                     | |
 | ~~`smbd.service (#)`~~                 | |
 | `sshd.service (#)`                     | |
 | ~~`systemd-boot-update.service (#)`~~  | |
