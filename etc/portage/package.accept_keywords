@@ -1,4 +1,5 @@
-app-misc/mcontrolcenter::tatsh-overlay
-games-util/game-device-udev-rules::steam-overlay
-games-util/steam-launcher::steam-overlay
-sys-libs/libudev-compat::steam-overlay
+*/*::steam-overlay
+games-util/game-device-udev-rules
+sys-libs/libudev-compat
+
+sys-boot/limine ~amd64
