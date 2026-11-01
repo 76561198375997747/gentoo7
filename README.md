@@ -474,6 +474,9 @@ winetricks dxvk vkd3d mfc42
 #
 emerge --ask sys-apps/flatpak
 flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak --user install flathub app.fluxer.Fluxer
+wget https://github.com/storytold/craft-launcher/releases/download/v0.12.0/artcraft-launcher-0.12.0-linux-x86_64.flatpak
+flatpak --user install artcraft-launcher-0.12.0-linux-x86_64.flatpak
 
 #
 eselect repository enable guru
