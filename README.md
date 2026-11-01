@@ -510,7 +510,11 @@ rustup-init-gentoo --symlink
 emerge --ask app-emulation/libvirt app-emulation/qemu app-emulation/wine-staging app-emulation/winetricks
 winecfg
 winetricks dxvk vkd3d mfc42
+
+emerge --ask sys-apps/flatpak
+flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 ```
+
 ---
 
 ### to do
